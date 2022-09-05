@@ -54,6 +54,7 @@ ability_scores_dic = {
 }
 
 skill_proficiencies = ['Arcana', 'History', 'Persuasion']
+skill_expertise = ['Persuasion']
 saving_throws = []
 current_level = 3
 ##------------------------------------------------------
@@ -99,6 +100,8 @@ for skill in skill_to_ability_dic:
     ##Adds proficiency bullet point, if not makes adds spaces
     if skill in skill_proficiencies:
         modifer += proficiency_bonus_level_dic[str(current_level)]
+        if skill in skill_expertise:
+             modifer += proficiency_bonus_level_dic[str(current_level)]
         skill_name = ' \u2022'+skill_name 
     else:
         skill_name = '  '+skill_name
@@ -107,8 +110,7 @@ for skill in skill_to_ability_dic:
     skill_label_name = Label(skill_frame, text=skill_name).grid(row=line_count, column=1, sticky=W)
     line_count += 1
    
-
-    
+ 
 
 
 
